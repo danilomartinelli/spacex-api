@@ -50,7 +50,7 @@ export class LaunchesService {
           },
           options: {
             limit: query?.limit ?? 50,
-            offset: query?.offset ?? 50,
+            offset: query?.offset ?? 0,
             sort: {
               ...(query.order === 'desc_date' ? { date_utc: 'desc' } : {}),
               ...(query.order === 'asc_date' ? { date_utc: 'asc' } : {}),
