@@ -14,7 +14,7 @@ export class LaunchesService {
     private rocketsService: RocketsService,
   ) {}
 
-  private async getLaunch(type: 'next' | 'latest') {
+  private async getLaunch(type: 'next' | 'latest' | string) {
     const { data: launch } = await lastValueFrom(
       this.httpService.get<ILaunch>(
         `https://api.spacexdata.com/v4/launches/${type}`,
@@ -95,5 +95,9 @@ export class LaunchesService {
 
   public async past(query: QueryDto) {
     return this.getLaunches('past', query);
+  }
+
+  public async getOne(id: string) {
+    return this.getLaunch(id);
   }
 }

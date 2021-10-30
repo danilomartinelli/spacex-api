@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { QueryDto } from './dto/query.dto';
 import { LaunchesService } from './launches.service';
 
@@ -24,5 +24,10 @@ export class LaunchesController {
   @Get('past')
   past(@Query() query: QueryDto) {
     return this.launchesService.past(query);
+  }
+
+  @Get(':id')
+  getOne(@Param('id') id: string) {
+    return this.launchesService.getOne(id);
   }
 }
