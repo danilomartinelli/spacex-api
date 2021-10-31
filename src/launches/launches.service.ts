@@ -29,8 +29,8 @@ export class LaunchesService {
       id: launch.id,
       name: launch.name,
       logo: {
-        small: launch.links.patch.small,
-        large: launch.links.patch.large,
+        small: launch.links.patch.small || null,
+        large: launch.links.patch.large || null,
       },
       date: launch.date_utc,
       rocket,
@@ -70,8 +70,8 @@ export class LaunchesService {
         id: launch.id,
         name: launch.name,
         logo: {
-          small: launch.links.patch.small,
-          large: launch.links.patch.large,
+          small: launch.links.patch.small || null,
+          large: launch.links.patch.large || null,
         },
         date: launch.date_utc,
         rocket: launch.rocket
