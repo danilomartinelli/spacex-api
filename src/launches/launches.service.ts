@@ -25,7 +25,7 @@ export class LaunchesService {
       ? await this.rocketsService.getOneRocket(launch.rocket)
       : null;
 
-    return {
+    const data = {
       id: launch.id,
       name: launch.name,
       logo: {
@@ -34,6 +34,11 @@ export class LaunchesService {
       },
       date: launch.date_utc,
       rocket,
+    };
+
+    return {
+      data,
+      total: 1,
     };
   }
 
